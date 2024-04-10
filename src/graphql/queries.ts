@@ -16,9 +16,12 @@ export const getTimeTracker = /* GraphQL */ `query GetTimeTracker($id: ID!) {
     description
     clockIn
     clockOut
-    first_break
-    secound_break
-    lunch
+    first_break_out
+    first_break_in
+    secound_break_out
+    secound_break_in
+    lunch_in
+    lunch_out
     createdAt
     updatedAt
     __typename
@@ -41,9 +44,12 @@ export const listTimeTrackers = /* GraphQL */ `query ListTimeTrackers(
       description
       clockIn
       clockOut
-      first_break
-      secound_break
-      lunch
+      first_break_out
+      first_break_in
+      secound_break_out
+      secound_break_in
+      lunch_in
+      lunch_out
       createdAt
       updatedAt
       __typename

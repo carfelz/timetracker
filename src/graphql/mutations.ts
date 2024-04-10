@@ -19,9 +19,12 @@ export const createTimeTracker = /* GraphQL */ `mutation CreateTimeTracker(
     description
     clockIn
     clockOut
-    first_break
-    secound_break
-    lunch
+    first_break_out
+    first_break_in
+    secound_break_out
+    secound_break_in
+    lunch_in
+    lunch_out
     createdAt
     updatedAt
     __typename
@@ -42,9 +45,12 @@ export const updateTimeTracker = /* GraphQL */ `mutation UpdateTimeTracker(
     description
     clockIn
     clockOut
-    first_break
-    secound_break
-    lunch
+    first_break_out
+    first_break_in
+    secound_break_out
+    secound_break_in
+    lunch_in
+    lunch_out
     createdAt
     updatedAt
     __typename
@@ -65,9 +71,12 @@ export const deleteTimeTracker = /* GraphQL */ `mutation DeleteTimeTracker(
     description
     clockIn
     clockOut
-    first_break
-    secound_break
-    lunch
+    first_break_out
+    first_break_in
+    secound_break_out
+    secound_break_in
+    lunch_in
+    lunch_out
     createdAt
     updatedAt
     __typename

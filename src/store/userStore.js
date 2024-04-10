@@ -20,6 +20,7 @@ export const useUserStore = defineStore("userStore", {
   getters: {
     isUserSignedUp: (state) => !!state.user?.userId,
     getCurrentUser: (state) => ({ ...state.user }),
+    isAdmin: (state) => state.user.isAdmin === "true",
   },
   persist: true,
 });

@@ -22,6 +22,7 @@ Hub.listen("auth", async ({ payload }) => {
         userId: data.sub,
         email: data.email,
         name: data["custom:name"],
+        isAdmin: data["custom:isAdmin"],
       });
       break;
     case "signedOut":

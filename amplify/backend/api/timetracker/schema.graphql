@@ -10,7 +10,10 @@ type TimeTracker @model {
   description: String
   clockIn: String
   clockOut: String
-  first_break: String
-  secound_break: String
-  lunch: String
+  first_break_out: String
+  first_break_in: String
+  secound_break_out: String
+  secound_break_in: String
+  lunch_in: String
+  lunch_out: String
 }

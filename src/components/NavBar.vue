@@ -26,9 +26,11 @@
                     : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                   'rounded-md px-3 py-2 text-sm font-medium',
                 ]"
-                :aria-current="item.current ? 'page' : undefined"
-                >{{ item.name }}</a
-              >
+                :aria-current="item.current ? 'page' : undefined">
+                <RouterLink :to="item.href">
+                  {{ item.name }}
+                </RouterLink>
+              </a>
             </div>
           </div>
         </div>
@@ -81,17 +83,17 @@
         <DisclosureButton
           v-for="item in navigation"
           :key="item.name"
-          as="a"
-          :href="item.href"
           :class="[
             item.current
               ? 'bg-gray-900 text-white'
               : 'text-gray-300 hover:bg-gray-700 hover:text-white',
             'block rounded-md px-3 py-2 text-base font-medium',
           ]"
-          :aria-current="item.current ? 'page' : undefined"
-          >{{ item.name }}</DisclosureButton
-        >
+          :aria-current="item.current ? 'page' : undefined">
+          <RouterLink :to="item.href">
+            {{ item.name }}
+          </RouterLink>
+        </DisclosureButton>
       </div>
     </DisclosurePanel>
   </Disclosure>
@@ -114,9 +116,9 @@ import { useUserStore } from "@/store/userStore";
 const currentUser = useUserStore().getCurrentUser;
 
 const navigation = [
-  { name: "Tracker", href: "#", current: true },
-  { name: "Breal/Lunch", href: "#", current: false },
-  { name: "Team", href: "#", current: false },
+  { name: "Tracker", href: "/", current: true },
+  { name: "Break/Lunch", href: "/breaks", current: false },
+  { name: "Team", href: "/allTracks", current: false },
 ];
 
 const auth = useAuthenticator();
