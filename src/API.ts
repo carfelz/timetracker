@@ -4,16 +4,22 @@
 
 export type CreateTimeTrackerInput = {
   id?: string | null,
+  userID: string,
   name: string,
   description?: string | null,
+  clockIn?: string | null,
+  clockOut?: string | null,
   first_break?: string | null,
   secound_break?: string | null,
   lunch?: string | null,
 };
 
 export type ModelTimeTrackerConditionInput = {
+  userID?: ModelIDInput | null,
   name?: ModelStringInput | null,
   description?: ModelStringInput | null,
+  clockIn?: ModelStringInput | null,
+  clockOut?: ModelStringInput | null,
   first_break?: ModelStringInput | null,
   secound_break?: ModelStringInput | null,
   lunch?: ModelStringInput | null,
@@ -22,7 +28,7 @@ export type ModelTimeTrackerConditionInput = {
   not?: ModelTimeTrackerConditionInput | null,
 };
 
-export type ModelStringInput = {
+export type ModelIDInput = {
   ne?: string | null,
   eq?: string | null,
   le?: string | null,
@@ -62,44 +68,7 @@ export type ModelSizeInput = {
   between?: Array< number | null > | null,
 };
 
-export type TimeTracker = {
-  __typename: "TimeTracker",
-  id: string,
-  name: string,
-  description?: string | null,
-  first_break?: string | null,
-  secound_break?: string | null,
-  lunch?: string | null,
-  createdAt: string,
-  updatedAt: string,
-};
-
-export type UpdateTimeTrackerInput = {
-  id: string,
-  name?: string | null,
-  description?: string | null,
-  first_break?: string | null,
-  secound_break?: string | null,
-  lunch?: string | null,
-};
-
-export type DeleteTimeTrackerInput = {
-  id: string,
-};
-
-export type ModelTimeTrackerFilterInput = {
-  id?: ModelIDInput | null,
-  name?: ModelStringInput | null,
-  description?: ModelStringInput | null,
-  first_break?: ModelStringInput | null,
-  secound_break?: ModelStringInput | null,
-  lunch?: ModelStringInput | null,
-  and?: Array< ModelTimeTrackerFilterInput | null > | null,
-  or?: Array< ModelTimeTrackerFilterInput | null > | null,
-  not?: ModelTimeTrackerFilterInput | null,
-};
-
-export type ModelIDInput = {
+export type ModelStringInput = {
   ne?: string | null,
   eq?: string | null,
   le?: string | null,
@@ -115,6 +84,52 @@ export type ModelIDInput = {
   size?: ModelSizeInput | null,
 };
 
+export type TimeTracker = {
+  __typename: "TimeTracker",
+  id: string,
+  userID: string,
+  name: string,
+  description?: string | null,
+  clockIn?: string | null,
+  clockOut?: string | null,
+  first_break?: string | null,
+  secound_break?: string | null,
+  lunch?: string | null,
+  createdAt: string,
+  updatedAt: string,
+};
+
+export type UpdateTimeTrackerInput = {
+  id: string,
+  userID?: string | null,
+  name?: string | null,
+  description?: string | null,
+  clockIn?: string | null,
+  clockOut?: string | null,
+  first_break?: string | null,
+  secound_break?: string | null,
+  lunch?: string | null,
+};
+
+export type DeleteTimeTrackerInput = {
+  id: string,
+};
+
+export type ModelTimeTrackerFilterInput = {
+  id?: ModelIDInput | null,
+  userID?: ModelIDInput | null,
+  name?: ModelStringInput | null,
+  description?: ModelStringInput | null,
+  clockIn?: ModelStringInput | null,
+  clockOut?: ModelStringInput | null,
+  first_break?: ModelStringInput | null,
+  secound_break?: ModelStringInput | null,
+  lunch?: ModelStringInput | null,
+  and?: Array< ModelTimeTrackerFilterInput | null > | null,
+  or?: Array< ModelTimeTrackerFilterInput | null > | null,
+  not?: ModelTimeTrackerFilterInput | null,
+};
+
 export type ModelTimeTrackerConnection = {
   __typename: "ModelTimeTrackerConnection",
   items:  Array<TimeTracker | null >,
@@ -123,8 +138,11 @@ export type ModelTimeTrackerConnection = {
 
 export type ModelSubscriptionTimeTrackerFilterInput = {
   id?: ModelSubscriptionIDInput | null,
+  userID?: ModelSubscriptionIDInput | null,
   name?: ModelSubscriptionStringInput | null,
   description?: ModelSubscriptionStringInput | null,
+  clockIn?: ModelSubscriptionStringInput | null,
+  clockOut?: ModelSubscriptionStringInput | null,
   first_break?: ModelSubscriptionStringInput | null,
   secound_break?: ModelSubscriptionStringInput | null,
   lunch?: ModelSubscriptionStringInput | null,
@@ -171,8 +189,11 @@ export type CreateTimeTrackerMutation = {
   createTimeTracker?:  {
     __typename: "TimeTracker",
     id: string,
+    userID: string,
     name: string,
     description?: string | null,
+    clockIn?: string | null,
+    clockOut?: string | null,
     first_break?: string | null,
     secound_break?: string | null,
     lunch?: string | null,
@@ -190,8 +211,11 @@ export type UpdateTimeTrackerMutation = {
   updateTimeTracker?:  {
     __typename: "TimeTracker",
     id: string,
+    userID: string,
     name: string,
     description?: string | null,
+    clockIn?: string | null,
+    clockOut?: string | null,
     first_break?: string | null,
     secound_break?: string | null,
     lunch?: string | null,
@@ -209,8 +233,11 @@ export type DeleteTimeTrackerMutation = {
   deleteTimeTracker?:  {
     __typename: "TimeTracker",
     id: string,
+    userID: string,
     name: string,
     description?: string | null,
+    clockIn?: string | null,
+    clockOut?: string | null,
     first_break?: string | null,
     secound_break?: string | null,
     lunch?: string | null,
@@ -227,8 +254,11 @@ export type GetTimeTrackerQuery = {
   getTimeTracker?:  {
     __typename: "TimeTracker",
     id: string,
+    userID: string,
     name: string,
     description?: string | null,
+    clockIn?: string | null,
+    clockOut?: string | null,
     first_break?: string | null,
     secound_break?: string | null,
     lunch?: string | null,
@@ -249,8 +279,11 @@ export type ListTimeTrackersQuery = {
     items:  Array< {
       __typename: "TimeTracker",
       id: string,
+      userID: string,
       name: string,
       description?: string | null,
+      clockIn?: string | null,
+      clockOut?: string | null,
       first_break?: string | null,
       secound_break?: string | null,
       lunch?: string | null,
@@ -269,8 +302,11 @@ export type OnCreateTimeTrackerSubscription = {
   onCreateTimeTracker?:  {
     __typename: "TimeTracker",
     id: string,
+    userID: string,
     name: string,
     description?: string | null,
+    clockIn?: string | null,
+    clockOut?: string | null,
     first_break?: string | null,
     secound_break?: string | null,
     lunch?: string | null,
@@ -287,8 +323,11 @@ export type OnUpdateTimeTrackerSubscription = {
   onUpdateTimeTracker?:  {
     __typename: "TimeTracker",
     id: string,
+    userID: string,
     name: string,
     description?: string | null,
+    clockIn?: string | null,
+    clockOut?: string | null,
     first_break?: string | null,
     secound_break?: string | null,
     lunch?: string | null,
@@ -305,8 +344,11 @@ export type OnDeleteTimeTrackerSubscription = {
   onDeleteTimeTracker?:  {
     __typename: "TimeTracker",
     id: string,
+    userID: string,
     name: string,
     description?: string | null,
+    clockIn?: string | null,
+    clockOut?: string | null,
     first_break?: string | null,
     secound_break?: string | null,
     lunch?: string | null,

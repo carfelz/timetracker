@@ -14,8 +14,7 @@
     },
     "categories": {
       "api": {
-        "timetracker": {},
-        "AdminQueries": {}
+        "timetracker": {}
       },
       "function": {
         "timetracker78034e7aPostConfirmation": {

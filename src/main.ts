@@ -8,12 +8,14 @@ import "@aws-amplify/ui-vue/styles.css";
 import { Amplify } from "aws-amplify";
 import awsconfig from "./aws-exports";
 import config from "./amplifyconfiguration.json";
+import piniaPluginPersistedState from "pinia-plugin-persistedstate";
 
 Amplify.configure(config);
 
 Amplify.configure(awsconfig);
 
 const pinia = createPinia();
+pinia.use(piniaPluginPersistedState);
 
 const app = createApp(App);
 

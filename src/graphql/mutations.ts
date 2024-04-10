@@ -14,8 +14,11 @@ export const createTimeTracker = /* GraphQL */ `mutation CreateTimeTracker(
 ) {
   createTimeTracker(input: $input, condition: $condition) {
     id
+    userID
     name
     description
+    clockIn
+    clockOut
     first_break
     secound_break
     lunch
@@ -34,8 +37,11 @@ export const updateTimeTracker = /* GraphQL */ `mutation UpdateTimeTracker(
 ) {
   updateTimeTracker(input: $input, condition: $condition) {
     id
+    userID
     name
     description
+    clockIn
+    clockOut
     first_break
     secound_break
     lunch
@@ -54,8 +60,11 @@ export const deleteTimeTracker = /* GraphQL */ `mutation DeleteTimeTracker(
 ) {
   deleteTimeTracker(input: $input, condition: $condition) {
     id
+    userID
     name
     description
+    clockIn
+    clockOut
     first_break
     secound_break
     lunch

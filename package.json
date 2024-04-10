@@ -15,6 +15,7 @@
     "aws-amplify": "^6.0.28",
     "dayjs": "^1.11.10",
     "pinia": "^2.1.7",
+    "pinia-plugin-persistedstate": "^3.2.1",
     "uuid": "^9.0.1",
     "vue": "^3.4.21",
     "vue-router": "^4.3.0"

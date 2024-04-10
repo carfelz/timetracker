@@ -5,6 +5,7 @@ input AMPLIFY {
 } # FOR TESTING ONLY!
 type TimeTracker @model {
   id: ID!
+  userID: ID!
   name: String!
   description: String
   clockIn: String

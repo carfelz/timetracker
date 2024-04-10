@@ -24,9 +24,11 @@
   </div>
 </template>
 <script>
-import { generateClient } from "aws-amplify/api";
-import { createTimeTracker } from "../graphql/mutations";
 import { v4 as uuidv4 } from "uuid";
+import { useUserStore } from "@/store/userStore";
+import { useTimeTrackerStore } from "../store/timeTrackerStore";
+import { createRecord, updateRecord } from "../helpers/requester";
+
 export default {
   data() {
     return {
@@ -56,34 +58,18 @@ export default {
 
   methods: {
     async clockIn() {
-      this.timeRecord = new Date().toUTCString();
-      this.isClockedIn = true;
-      console.log({ clockInTime: this.timeRecord, desc: this.description });
-
-      const client = generateClient();
-
+      const { setRecord } = useTimeTrackerStore();
+      const currentUser = useUserStore().getCurrentUser;
       const timeRecord = {
         id: uuidv4(),
-        name: "test name",
-        description: "around us",
-        first_break: new Date().toUTCString(),
+        userID: currentUser.userId,
+        name: currentUser.name,
+        description: this.description,
+        clockIn: new Date().toUTCString(),
       };
 
-      try {
-        await client.graphql({
-          query: createTimeTracker,
-          variables: {
-            input: timeRecord,
-          },
-        });
-        // const result = await API.graphql(
-        //   graphqlOperation(createTimeTracker, { input: timeRecord })
-        // );
-        //this.data = result.data.getMyData Access data based on your query structure
-      } catch (error) {
-        this.error = error;
-        console.error(error);
-      }
+      createRecord(timeRecord, setRecord);
+      this.isClockedIn = true;
     },
 
     clockOut() {

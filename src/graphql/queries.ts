@@ -11,8 +11,11 @@ type GeneratedQuery<InputType, OutputType> = string & {
 export const getTimeTracker = /* GraphQL */ `query GetTimeTracker($id: ID!) {
   getTimeTracker(id: $id) {
     id
+    userID
     name
     description
+    clockIn
+    clockOut
     first_break
     secound_break
     lunch
@@ -33,8 +36,11 @@ export const listTimeTrackers = /* GraphQL */ `query ListTimeTrackers(
   listTimeTrackers(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
+      userID
       name
       description
+      clockIn
+      clockOut
       first_break
       secound_break
       lunch

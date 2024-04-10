@@ -13,8 +13,11 @@ export const onCreateTimeTracker = /* GraphQL */ `subscription OnCreateTimeTrack
 ) {
   onCreateTimeTracker(filter: $filter) {
     id
+    userID
     name
     description
+    clockIn
+    clockOut
     first_break
     secound_break
     lunch
@@ -32,8 +35,11 @@ export const onUpdateTimeTracker = /* GraphQL */ `subscription OnUpdateTimeTrack
 ) {
   onUpdateTimeTracker(filter: $filter) {
     id
+    userID
     name
     description
+    clockIn
+    clockOut
     first_break
     secound_break
     lunch
@@ -51,8 +57,11 @@ export const onDeleteTimeTracker = /* GraphQL */ `subscription OnDeleteTimeTrack
 ) {
   onDeleteTimeTracker(filter: $filter) {
     id
+    userID
     name
     description
+    clockIn
+    clockOut
     first_break
     secound_break
     lunch
