@@ -1,0 +1,37 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-timetracker-dev-24739-authRole",
+      "UnauthRoleArn": "arn:aws:iam::093963392834:role/amplify-timetracker-dev-24739-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::093963392834:role/amplify-timetracker-dev-24739-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-timetracker-dev-24739-deployment",
+      "UnauthRoleName": "amplify-timetracker-dev-24739-unauthRole",
+      "StackName": "amplify-timetracker-dev-24739",
+      "StackId": "arn:aws:cloudformation:us-east-1:093963392834:stack/amplify-timetracker-dev-24739/3a47ea00-f706-11ee-b8da-12c2e9d01e13",
+      "AmplifyAppId": "d351fjw47u6t22",
+      "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-timetracker-dev-24739-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json"
+    },
+    "categories": {
+      "api": {
+        "timetracker": {},
+        "AdminQueries": {}
+      },
+      "function": {
+        "timetracker78034e7aPostConfirmation": {
+          "GROUP": "timeTrackerUserPool",
+          "deploymentBucketName": "amplify-timetracker-dev-24739-deployment",
+          "s3Key": "amplify-builds/timetracker78034e7aPostConfirmation-346370666e4e70784658-build.zip"
+        },
+        "AdminQueriesc03694a6": {
+          "deploymentBucketName": "amplify-timetracker-dev-24739-deployment",
+          "s3Key": "amplify-builds/AdminQueriesc03694a6-6b425a6d67656c2b3851-build.zip"
+        }
+      },
+      "auth": {
+        "timeTracker": {},
+        "userPoolGroups": {}
+      }
+    }
+  }
+}
