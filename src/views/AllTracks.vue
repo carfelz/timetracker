@@ -1,6 +1,8 @@
 <template>
-  <div>somthing for now</div>
-  <TrackerTable :data="data" />
+  <div class="flex justify-evenly items-center h-92 flex-col">
+    <h1 class="my-8">Time Tracker Report</h1>
+    <TrackerTable :data="data" />
+  </div>
 </template>
 <script>
 import TrackerTable from "../components/TrackerTable.vue";
