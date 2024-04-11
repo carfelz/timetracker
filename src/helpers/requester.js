@@ -1,5 +1,6 @@
 import { generateClient } from "aws-amplify/api";
 import { createTimeTracker, updateTimeTracker } from "../graphql/mutations";
+import { listTimeTrackers } from "../graphql/queries";
 
 const client = generateClient();
 
@@ -18,7 +19,6 @@ export async function createRecord(record, handleClockInStore) {
     });
     if (handleClockInStore) handleClockInStore(data.createTimeTracker);
   } catch (error) {
-    this.error = error;
     console.error(error);
   }
 }
@@ -34,7 +34,6 @@ export async function updateRecord(record, handleUpdatedInStore) {
 
     if (handleUpdatedInStore) handleUpdatedInStore(data.updateTimeTracker);
   } catch (error) {
-    this.error = error;
     console.error(error);
   }
 }
@@ -43,4 +42,16 @@ export function closeRecord({ id, clockOut }, handleClockOutInStore) {
   updateRecord({ id, clockOut }, null);
 
   if (handleClockOutInStore) handleClockOutInStore();
+}
+
+export async function getAllTracks() {
+  try {
+    const { data } = await client.graphql({
+      query: listTimeTrackers,
+    });
+
+    return data.listTimeTrackers.items;
+  } catch (error) {
+    console.error(error);
+  }
 }
